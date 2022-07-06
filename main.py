@@ -7,8 +7,8 @@ import webbrowser
 import wikipedia
 import smtplib
 import datetime
-
-
+from Startup import Setup
+import requests
 ###n Terminal type
 
 # pip install pipwin
@@ -22,76 +22,69 @@ print("Started up boss")
 
 
 
+setup=Setup()
+setup.speak("Hello ")
 
 
 
 
-engine=pyttsx3.init('sapi5')
-voices=engine.getProperty('voices')
-engine.getProperty('voice')
 
-def speak(text):
-    """it will take the text and speak it out loud"""
-    engine.setProperty('voice',  voices[1].id)
-    engine.say(text)
-    engine.runAndWait()
+
+
   
-
 def bootup():
-    engine.setProperty("rate", 200)
+    # self.engine.setProperty("rate", 200)
     a = int(datetime.datetime.now().hour)
 
     if a>0 and a<12:
-        speak(f"good morning Sir welcome back its {a}am ")
+        setup.speak(f"good morning Sir welcome back its {a}am ")
     elif a >=12 and a<18:
-        speak(f"good afternoon Sir welcome back its {a}pm")
+        setup.speak(f"good afternoon Sir welcome back its {a}pm")
 
     else:
-        speak(f"good evening Sir welcome back its {a}pm")
+        setup.speak(f"good evening Sir welcome back its {a}pm")
 
-    speak("How may i be of help today")
+    setup.speak("How may i be of help today")
 bootup()
 
-def take():
-    detector=sr.Recognizer()
-
-    with sr.Microphone() as source:
-        print("listening")
-        audio=detector.listen(source)
-
-        try:
-            print("recognizing")
-            query=detector.recognize_google(audio,language='en-in').lower()
-            print(f'user said {query}')
-
-        except Exception as e:
-            speak("can you repeat that please")
-            take()
-            query=None
-        return query
-
-query=take()
 
 
-if 'wikipedia' in query:
-    speak("searching on wikipedia")
-    query=query.replace('wikipedia',"")
+results=setup.take()
+print(results)
+
+
+
+if 'wikipedia' in results:
+    setup.speak("searching on wikipedia")
+    query=results.replace('wikipedia',"")
     resulta=wikipedia.summary(query,sentences=2)
-    speak(resulta)
+    setup.speak(resulta)
 
-elif 'time now' in query:
+elif 'time now' in results:
     a = int(datetime.datetime.now().hour)
 
     if a > 0 and a < 12:
-        speak(f" its {a}am ")
+        setup.speak(f" its {a}am ")
     elif a >= 12 and a < 18:
-        speak(f"its {a}pm")
+        setup.speak(f"its {a}pm")
 
     else:
-        speak(f" its {a}pm")
+        setup.speak(f" its {a}pm")
 
-elif 'open youtube' in query:
+elif 'open youtube' in results:
     path='C:/Program Files/Google/Chrome/Application/chrome.exe %s'
     webbrowser.get(path).open('youtube.com')
 
 
+elif 'dad joke' or 'add joke' in results:
+    request=requests.get(" https://icanhazdadjoke.com/slack")
+    request.raise_for_status()
+    data=request.json()
+    setup.speak(data['attachments'][0]['fallback'])
+
+
+elif "joke" or "jokes" in results:
+    request=requests.get(" https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky,Christmas?blacklistFlags=nsfw,political,sexist")
+    request.raise_for_status()
+    data=request.json()
+    setup.speak(data['joke'])
