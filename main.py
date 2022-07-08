@@ -9,6 +9,8 @@ import smtplib
 import datetime
 from Startup import Setup
 import requests
+from fun import Fun
+from tech import Tech
 ###n Terminal type
 
 # pip install pipwin
@@ -18,16 +20,10 @@ import requests
 
 
 print("Started up boss")
-
-
-
-
 setup=Setup()
+fun=Fun()
+tech=Tech()
 setup.speak("Hello ")
-
-
-
-
 
 
 
@@ -56,35 +52,24 @@ print(results)
 
 if 'wikipedia' in results:
     setup.speak("searching on wikipedia")
-    query=results.replace('wikipedia',"")
-    resulta=wikipedia.summary(query,sentences=2)
-    setup.speak(resulta)
+    resultswiki=fun.wikipedia(results)
+    setup.speak(resultswiki)
+    setup.take()
 
 elif 'time now' in results:
-    a = int(datetime.datetime.now().hour)
-
-    if a > 0 and a < 12:
-        setup.speak(f" its {a}am ")
-    elif a >= 12 and a < 18:
-        setup.speak(f"its {a}pm")
-
-    else:
-        setup.speak(f" its {a}pm")
+   results=tech.timenow()
+   setup.speak(results)
 
 elif 'open youtube' in results:
-    path='C:/Program Files/Google/Chrome/Application/chrome.exe %s'
-    webbrowser.get(path).open('youtube.com')
+    tech.openyt(results=results)
 
 
 elif 'dad joke' or 'add joke' in results:
-    request=requests.get(" https://icanhazdadjoke.com/slack")
-    request.raise_for_status()
-    data=request.json()
-    setup.speak(data['attachments'][0]['fallback'])
+    result_dad=tech.dad_joke()
+    setup.speak(result_dad)
 
 
 elif "joke" or "jokes" in results:
-    request=requests.get(" https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky,Christmas?blacklistFlags=nsfw,political,sexist")
-    request.raise_for_status()
-    data=request.json()
-    setup.speak(data['joke'])
+        result_joke=tech.joke()
+        setup.speak(result_joke)
+
