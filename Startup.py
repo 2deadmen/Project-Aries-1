@@ -1,6 +1,6 @@
 
 import time
-
+import requests
 import pyttsx3
 import speech_recognition as sr
 import os
@@ -18,13 +18,14 @@ class Setup:
         self.rate=self.engine.getProperty('rate')
         self.engine.getProperty('voice')
         self.detector=sr.Recognizer()
-
+        self.count=0
     def speak(self,text):
         """it will take the text and speak it out loud"""
         self.engine.setProperty('voice',  self.voices[1].id)
         self.engine.setProperty('rate',300)
         self.engine.say(text)
         self.engine.runAndWait()
+    
 
     def take(self):
    
@@ -32,7 +33,6 @@ class Setup:
         with sr.Microphone() as source:
             print("listening")
             audio=self.detector.listen(source)
-
             try:
                 print("recognizing")
                 query=self.detector.recognize_google(audio,language='en-in').lower()
@@ -40,24 +40,20 @@ class Setup:
                 return query
 
             except Exception as e:
-                self.speak("can you repeat that please")
-                self.take()
-                return query
-                query=None
-            return query
-
-        
-
-    
-
-   
-
-    
-
-  
-
-
-
-
-
-
+                
+                if  self.count == 0:
+                    self.speak("can you repeat that please")
+                    print(self.count)
+                    self.count+=1
+                    self.take()
+                    return query
+                    query=None
+                    
+                else:
+                   
+                    try:
+                        requests.get("https://www.youtube.com/")
+                    except requests.exceptions.RequestException as e:
+                        self.speak("please check your internet connection")
+                        self.take()
+        #return query
