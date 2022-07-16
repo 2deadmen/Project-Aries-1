@@ -20,9 +20,13 @@ from tech import Tech
 
 
 print("Started up boss")
+
 setup=Setup()
 fun=Fun()
 tech=Tech()
+
+
+
 setup.speak("Hello ")
 
 
@@ -30,15 +34,16 @@ setup.speak("Hello ")
   
 def bootup():
     # self.engine.setProperty("rate", 200)
-    a = int(datetime.datetime.now().hour)
+    a = int(datetime.datetime.now().strftime("%H"))
+    b = int(datetime.datetime.now().strftime("%M"))
 
     if a>0 and a<12:
-        setup.speak(f"good morning Sir welcome back its {a}am ")
+        setup.speak(f"good morning Sir welcome back its {f'{a} {b}'}am ")
     elif a >=12 and a<18:
-        setup.speak(f"good afternoon Sir welcome back its {a}pm")
+        setup.speak(f"good afternoon Sir welcome back its {f'{a} {b}'}pm")
 
     else:
-        setup.speak(f"good evening Sir welcome back its {a}pm")
+        setup.speak(f"good evening Sir welcome back its {f'{a} {b}'}pm")
 
     setup.speak("How may i be of help today")
 bootup()
