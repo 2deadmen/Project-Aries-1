@@ -15,12 +15,14 @@ class Setup:
     def __init__(self):
         self.engine=pyttsx3.init('sapi5')
         self.voices=self.engine.getProperty('voices')
+        self.rate=self.engine.getProperty('rate')
         self.engine.getProperty('voice')
         self.detector=sr.Recognizer()
 
     def speak(self,text):
         """it will take the text and speak it out loud"""
         self.engine.setProperty('voice',  self.voices[1].id)
+        self.engine.setProperty('rate',300)
         self.engine.say(text)
         self.engine.runAndWait()
 
