@@ -37,4 +37,4 @@ class Tech:
             data=request.json()
             return (data['joke'])
         
-# //checking for ginput
+# //checking for ginput adda
