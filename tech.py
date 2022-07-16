@@ -1,6 +1,7 @@
 import os
 import webbrowser
 import datetime
+from matplotlib.pyplot import ginput
 import requests
 class Tech:
 
@@ -36,3 +37,4 @@ class Tech:
             data=request.json()
             return (data['joke'])
         
+# //checking for ginput
