@@ -1,5 +1,5 @@
+from math import floor
 import time
-
 import pyttsx3
 import speech_recognition as sr
 import os
@@ -12,6 +12,23 @@ from Startup import Setup
 import requests
 from fun import Fun
 from tech import Tech
+from sqlalchemy import Table, Column, Integer, ForeignKey,Float
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///trial-3.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+class Volume(db.Model):
+    __tablename__="volume"
+    id=db.Column(db.Integer,primary_key=True)
+    volume=db.Column(db.Integer)
+db.create_all()
+
+
 ###n Terminal type
 
 # pip install pipwin
@@ -20,7 +37,13 @@ from tech import Tech
 # pipwin install pyaudio
 
 
+
+
+
 print("Started up boss")
+
+
+
 
 setup=Setup()
 fun=Fun()
@@ -80,6 +103,14 @@ elif 'time now' in results:
 
 elif 'open youtube' in results:
     tech.openyt(results=results)
+
+
+
+elif "change " and "volume" in results:
+    setup.kai(results)
+   
+   
+
 
 
 elif 'dad joke' or 'add joke' in results:

@@ -36,5 +36,8 @@ class Tech:
             request.raise_for_status()
             data=request.json()
             return (data['joke'])
+
+   
+
         
 # //checking for ginput adda
