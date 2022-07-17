@@ -6,6 +6,7 @@ import os
 import webbrowser
 import wikipedia
 import smtplib
+import random
 import datetime
 from Startup import Setup
 import requests
@@ -60,6 +61,18 @@ if 'wikipedia' in results:
     resultswiki=fun.wikipedia(results)
     setup.speak(resultswiki)
     setup.take()
+
+elif "choose between" in results:
+    setup.speak("what do i need to choose between ,please state first option")
+    firstopt=setup.take()
+    setup.speak("state the second option")
+    secopt=setup.take()
+    optlist=[]
+    optlist.append(firstopt)
+    optlist.append(secopt)
+    chosen=random.choice(optlist)
+    setup.speak(f"i think {chosen} is a better choice")
+    
 
 elif 'time now' in results:
    results=tech.timenow()
