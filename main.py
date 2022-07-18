@@ -1,5 +1,6 @@
 from math import floor
 import time
+from wsgiref.validate import validator
 import pyttsx3
 import speech_recognition as sr
 import os
@@ -12,7 +13,7 @@ from Startup import Setup
 import requests
 from fun import Fun
 from tech import Tech
-from sqlalchemy import Table, Column, Integer, ForeignKey,Float
+from sqlalchemy import Table, Column, Integer, ForeignKey,Float,String
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
@@ -26,6 +27,11 @@ class Volume(db.Model):
     __tablename__="volume"
     id=db.Column(db.Integer,primary_key=True)
     volume=db.Column(db.Integer)
+
+class Notes(db.Model):
+    __tablename__="notes"
+    id=db.Column(db.Integer,primary_key=True)
+    content=db.Column(db.String(100))
 db.create_all()
 
 
@@ -85,6 +91,23 @@ if 'wikipedia' in results:
     setup.speak(resultswiki)
     setup.take()
 
+
+elif "add" and "notes" or "notes" in results:
+    notes=Notes.query.all()
+    print(notes)
+    for i in notes:
+        
+          setup.speak(f"{i.id}    {i.content}")
+    setup.speak("if you want me to add new notes please state it otherwise tell no ")
+    results=setup.take()
+    if not "no" in results:
+        new=Notes(
+            content=results
+        )
+        db.session.add(new)
+        db.session.commit()
+        setup.speak("notes added succesfully")
+
 elif "choose" and "between" in results:
     setup.speak("what do i need to choose between ,please state first option")
     firstopt=setup.take()
@@ -121,4 +144,3 @@ elif 'dad joke' or 'add joke' in results:
 elif "joke" or "jokes" in results:
         result_joke=tech.joke()
         setup.speak(result_joke)
-

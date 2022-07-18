@@ -40,7 +40,7 @@ class Setup:
         # print(posts.volume)
         self.engine.setProperty('volume',posts.volume)
         self.engine.setProperty('voice',  self.voices[1].id)
-        self.engine.setProperty('rate',300)
+        self.engine.setProperty('rate',250)
         self.engine.say(text)
         self.engine.runAndWait()
     
