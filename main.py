@@ -85,7 +85,7 @@ if 'wikipedia' in results:
     setup.speak(resultswiki)
     setup.take()
 
-elif "choose between" in results:
+elif "choose" and "between" in results:
     setup.speak("what do i need to choose between ,please state first option")
     firstopt=setup.take()
     setup.speak("state the second option")

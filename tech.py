@@ -1,7 +1,7 @@
 import os
 import webbrowser
 import datetime
-from matplotlib.pyplot import ginput
+#om matplotlib.pyplot import ginput
 import requests
 class Tech:
 
