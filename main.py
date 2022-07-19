@@ -98,6 +98,31 @@ elif "add" and "notes" or "notes" in results:
     for i in notes:
         
           setup.speak(f"{i.id}    {i.content}")
+    setup.speak("to remove any notes state its serial number or tell delete all to erase all old notes")
+    results=setup.take()
+    if not "delete" and "all" in results:
+        b=results.split()
+        for i in b:
+            try:
+                z=int(i)
+            except:
+                z=i
+        len=Notes.id.property.columns[0].type.length
+        if len>=z:
+            if type(z)==int:
+                note=Notes.query.get(z)
+                db.session.delete(note)
+                db.session.commit()
+                setup.speak(f"deleted note {z} succesfully")
+        else:
+            setup.speak("inappropriate input")
+    if "delete" and "all" in results:
+        db.session.query(Notes).delete()
+        db.session.commit()
+        setup.speak("all notes have been deleted")
+
+                
+
     setup.speak("if you want me to add new notes please state it otherwise tell no ")
     results=setup.take()
     if not "no" in results:
@@ -107,6 +132,7 @@ elif "add" and "notes" or "notes" in results:
         db.session.add(new)
         db.session.commit()
         setup.speak("notes added succesfully")
+    
 
 elif "choose" and "between" in results:
     setup.speak("what do i need to choose between ,please state first option")
