@@ -150,17 +150,41 @@ elif 'time now' in results:
    results=tech.timenow()
    setup.speak(results)
 
+
 elif 'open youtube' in results:
     tech.openyt(results=results)
-
 
 
 elif "change " and "volume" in results:
     setup.kai(results)
    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    
-
-
 
 elif 'dad joke' or 'add joke' in results:
     result_dad=tech.dad_joke()
