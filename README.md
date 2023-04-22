@@ -8,6 +8,7 @@
 <body>
 	<h1>🔊 This project is an Alexa-like device built using a Raspberry Pi and Python. 🍓</h1>
 	<p>We used SQL Alchemy 🐘 for database management, Pyttsx3 🔊 for text-to-speech conversion, and SpeechRecognition 🗣️ for speech-to-text conversion. Additionally, we utilized a speaker 🔊 and audio mic 🎤 in the Raspberry Pi.</p>
+	<h3>Yes you can use this project for free but cannot sell it to others </h3>
 	<h2>🛠️ Materials</h2>
 	<p>We used a composite material made from recycled plastic and wood fibers as the frame for our device. This material was chosen because it is lightweight, durable, and environmentally friendly. 🌍</p>
 	<p>To assemble the frame, we used a combination of screws, brackets, and adhesive. We carefully measured and cut the material to size using a saw and sandpaper. We also added holes and notches to accommodate the various components of the device, such as the speaker and audio mic.</p>
