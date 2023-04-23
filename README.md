@@ -14,13 +14,11 @@
 	<p>To assemble the frame, we used a combination of screws, brackets, and adhesive. We carefully measured and cut the material to size using a saw and sandpaper. We also added holes and notches to accommodate the various components of the device, such as the speaker and audio mic.</p>
 	<p>In addition to the frame, we also used various electronic components, such as resistors, capacitors, and transistors, to build the circuitry for the device. We soldered these components onto a printed circuit board (PCB) to create a compact and efficient design. ⚡</p>
 	<h2>👥 Contributors</h2>
-	<ul>
-		<li>AKASH 👨‍💻</li>
-		<li>UDAY 👨‍💻</li>
-		<li>KARTIK HEGDE 👨‍💻</li>
-		<li>BHOJESH BG 👨‍💻</li>
-		<li>GIRISH CHANDRA 👨‍💻</li>
-	</ul>
+<img src="https://raw.githubusercontent.com/akashgreninja/helper-repository-for-doggo-nation/main/7cc5b043-0d4c-4b73-9f0f-d2812b67a671.jpg" width="100px"> <br> Kartik Hegde
+
+<img src="https://raw.githubusercontent.com/akashgreninja/helper-repository-for-doggo-nation/main/5dc3950c-71ce-4c6b-bc7b-c21d18bf6d14.jpg" width="100px"> <br> Akash Uday
+
+<img src="https://raw.githubusercontent.com/akashgreninja/helper-repository-for-doggo-nation/main/7db63767-0446-444c-9298-a362eb650962.jpg" width="100px"> <br> Bhojesh BG
 	<h2>🎁 Features</h2>
 	<ul>
 		<li>Speech-to-text conversion 🗣️→📝</li>
