@@ -27,9 +27,40 @@
 		<li>Speaker and audio mic integration 🔊🎤</li>
 	</ul>
 	<h2>🚀 Getting Started</h2>
-	<p>To get started with this project, [INSERT INSTRUCTIONS HERE].</p>
-	<h2>💡 Usage</h2>
-	<p>[INSERT USAGE INSTRUCTIONS HERE].</p>
+	<p>To get started with this project</p>
+		<h2>Requirements</h2>
+	<p>To get started, you will need the following:</p>
+	<ul>
+		<li>Python 3.x installed on your computer</li>
+		<li>A Raspberry Pi with an internet connection</li>
+		<li>A speaker and microphone connected to your Raspberry Pi</li>
+	</ul>
+	<h2>Installation</h2>
+	<p>To install the project, follow these steps:</p>
+	<ol>
+		<li>Clone the repository to your computer.</li>
+		<li>Install the required Python packages by running the following command:</li>
+	</ol>
+	<code>pip install -r requirements.txt</code>
+	<p>The <code>requirements.txt</code> file contains a list of all the Python packages that are required for this project. Running this command will install all of the packages automatically.</p>
+	<h2>Usage</h2>
+	<p>To use the project, follow these steps:</p>
+	<ol>
+		<li>Open a terminal and navigate to the project directory.</li>
+		<li>Run the <code>main.py</code> file using Python by running the following command:</li>
+	</ol>
+	<code>python main.py</code>
+	<p>The code will run and wait for a command from Alexa.</p>
+	<p>Connect your Raspberry Pi to a speaker and microphone.</p>
+	<p>Start your Raspberry Pi and say "Hello, I am Aries" to activate Alexa.</p>
+	<p>The <code>main.py</code> file contains the Python code that runs the Alexa voice service. When you run the code, it will start listening for voice commands from Alexa. Once it receives a command, it will process the command and send a response back to Alexa.</p>
+	<p>To interact with Alexa, you will need to connect your Raspberry Pi to a speaker and microphone. You can use any speaker and microphone that are compatible with your Raspberry Pi. Once you have connected the speaker and microphone, start your Raspberry Pi and say "Hello, I am Aries" to activate Alexa.</p>
+	<h2>Sending code to the Raspberry Pi</h2>
+	<p>To send the code to your Raspberry Pi, follow these steps:</p>
+	<ol>
+		<li>Connect your Raspberry Pi to your local network.</li>
+		<li>Find the IP address of your Raspberry Pi.</li>
+		<li>On your computer, open a terminal and navigate to the project directory.</li>
 	<h2>🤝 Contributing</h2>
 	<p>Contributions are welcome! Please see CONTRIBUTING.md for more details. 🙏</p>
 	<h2>📝 License</h2>
